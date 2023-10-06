@@ -20,16 +20,17 @@ while True:
         print("Invalid, try again.")
         
 max_scores = 50
-players_scores = [0 for _ in range(len(players))]
+players_scores = [0 for _ in range(players)]
         
 while max(players_scores) < max_scores:
     
     for player_idx in range(players):
-       print("\n Player", player_idx + 1, "turn has just started! \n")
+       print("\n Player number ", player_idx + 1, "turn has just started! \n")
+       print("Your total score is: ", players_scores[player_idx], "\n")
        current_score = 0
     
        while True:
-         should_roll = input("Would you like to roll(y)")
+         should_roll = input("Would you like to roll(y): ")
          if should_roll.lower() != "y":
            break
            
@@ -43,3 +44,7 @@ while max(players_scores) < max_scores:
 
        players_scores[player_idx] += current_score
        print("Your total score is: " , players_scores[player_idx])
+       
+max_scores =  max(players_scores)
+winning_idx = players_scores.index(max_scores)
+print("Players number", winning_idx + 1,"is the winner with the score of: ", max_scores)
